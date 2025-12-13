@@ -38,7 +38,7 @@ body {
   text-shadow:
     2px 2px 0px #333,
     4px 4px 0px #111;
-  animation: pulse 4s ease-in-out infinite;
+  /* animation: pulse 4s ease-in-out infinite; */
 }
 
 .logo::after {
