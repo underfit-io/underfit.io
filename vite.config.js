@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/underfit.io/', // Assuming the repo name is underfit.io, adjust if it's a user site
+    base: './', // Use relative paths for flexibility (works on custom domains and subpaths)
 })
