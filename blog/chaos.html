@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The "Brittleness" Trap - underfit.io</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="/" class="nav-link ">Home</a>
+      <a href="/blog/" class="nav-link active">Blog</a>
+      <a href="/about.html" class="nav-link ">About</a>
+      <a href="/contact.html" class="nav-link ">Contact</a>
+    </nav>
+    <div class="page-container">
+      <div class="content">
+        
+    <h1 class="page-title">The "Brittleness" Trap</h1>
+    <p class="post-date">12/14/2025</p>
+    <h1>The &quot;Brittleness&quot; Trap: Why Agentic AI Struggles to Survive the Real World</h1>
+<p>We are currently living through the &quot;Agentic Era&quot; of the AI hype cycle. The promise is seductive: instead of just chatting with a bot, you assign it a goal—<em>“Plan a travel itinerary,”</em> <em>“Fix this bug in the codebase,”</em> or <em>“Negotiate a refund”</em>—and the agent autonomously executes the steps, using tools and making decisions along the way.</p>
+<p>But while demos look incredible in controlled sandboxes, deployment tells a different story. Recent industry reports suggest that <strong>up to 90% of agentic AI implementations fail to move from pilot to production</strong>.</p>
+<p>Why is there such a massive gap between a demo and the real world? The answer lies in <strong>generalization</strong>. Here is why Agentic AI currently fails to handle the messy, chaotic reality of production environments.</p>
+<h2>1. The &quot;Happy Path&quot; Fallacy</h2>
+<p>Most AI agents are tested on what engineers call the &quot;happy path&quot;—an idealized scenario where APIs respond instantly, data is clean, and users ask clear questions. Real-world business environments, however, are defined by their chaos.</p>
+<p>When an agent encounters an edge case—like a changing data format or a system outage—it often doesn&#39;t just fail; it breaks catastrophically. This <strong>&quot;brittleness&quot;</strong> occurs because agents lack a robust &quot;world model.&quot; They don&#39;t understand <em>why</em> they are doing a task, only the statistical likelihood of the next step.</p>
+<ul>
+<li><strong>Read more:</strong> <a href="https://beam.ai/agentic-insights/agentic-ai-in-2025-why-90-of-implementations-fail-(and-how-to-be-the-10-)">Why 90% of Agentic AI Projects Fail (Beam AI)</a></li>
+<li><strong>Deep Dive:</strong> <a href="https://www.rckennedysc.com/news/the-surprising-brittleness-of-ai">The Surprising Brittleness of AI (RC Kennedy Consulting)</a></li>
+</ul>
+<h2>2. The Hallucination &quot;Snowball Effect&quot;</h2>
+<p>In a standard ChatGPT session, a single hallucination (a factual error) is annoying but manageable. In an <strong>autonomous agentic loop</strong>, a single hallucination can be fatal.</p>
+<p>Because agents function sequentially (Step A $\rightarrow$ Step B $\rightarrow$ Step C), a minor error in Step A becomes the <em>ground truth</em> for Step B. This leads to <strong>error propagation</strong>, where the agent confidently spirals into a state of complete delusion, compounding the initial mistake with every subsequent action. Without a &quot;human in the loop&quot; to catch that first error, the agent can waste hours of compute time or, worse, corrupt database records based on false premises.</p>
+<ul>
+<li><strong>Research:</strong> <a href="https://arxiv.org/pdf/2501.13946">Hallucination Mitigation Using Agentic AI (arXiv)</a></li>
+<li><strong>Industry Risk:</strong> <a href="https://bankingjournal.aba.com/2025/12/are-we-sleepwalking-into-an-agentic-ai-crisis/">Are we sleepwalking into an agentic AI crisis? (ABA Banking Journal)</a></li>
+</ul>
+<h2>3. The &quot;Context Drift&quot; Problem</h2>
+<p>Humans are excellent at keeping a long-term goal in mind while dealing with short-term distractions. LLM-based agents, however, struggle with <strong>long-horizon planning</strong>.</p>
+<p>As an agent works through a complex task, the &quot;context window&quot; (its short-term memory) fills up with logs, tool outputs, and error messages. Research shows that models suffer from <strong>&quot;context drift&quot;</strong> or the &quot;lost in the middle&quot; phenomenon, where they begin to forget the original instruction or lose track of the overarching strategy. This results in agents that get stuck in infinite loops—clicking the same button or querying the same database repeatedly—because they have lost the thread of the narrative.</p>
+<ul>
+<li><strong>Technical Analysis:</strong> <a href="https://www.aryaxai.com/article/analysis-of-october25-top-agentic-ai-research-papers">Scaling Long-Horizon LLM Agent via Context-Folding (AryaXAI)</a></li>
+<li><strong>Survey:</strong> <a href="https://aclanthology.org/2025.findings-acl.1291.pdf">LLMs as Planning Formalizers (ACL Anthology)</a></li>
+</ul>
+<h2>4. Open-Ended Environments and &quot;Negative Side Effects&quot;</h2>
+<p>Perhaps the most subtle failure mode is the <strong>Negative Side Effect (NSE)</strong>. In a closed game like Chess, the rules are finite. In the open world, actions have infinite ripple effects.</p>
+<p>An agent optimized to &quot;clean a folder&quot; might delete critical system files because no one explicitly told it <em>not</em> to. An agent tasked with &quot;increasing email engagement&quot; might spam customers until they unsubscribe. Because agents lack common sense and ethical grounding, they often achieve their goals in ways that are technically correct but practically disastrous. They fail to generalize the <em>intent</em> of the user, adhering instead to the rigid letter of the prompt.</p>
+<ul>
+<li><strong>Academic Paper:</strong> <a href="https://pdfs.semanticscholar.org/045e/c23884050ff773465d6748a63201b40c750c.pdf">Avoiding Negative Side Effects of Autonomous Systems (Semantic Scholar)</a></li>
+<li><strong>Safety Report:</strong> <a href="https://www.researchgate.net/publication/388754472_Fully_Autonomous_AI_Agents_Should_Not_be_Developed">Fully Autonomous AI Agents Should Not be Developed (ResearchGate)</a></li>
+</ul>
+<h2>5. The Integration Gap</h2>
+<p>Finally, there is the boring but fatal problem of plumbing. It is easy to build an agent that works in a Python notebook. It is incredibly hard to build one that navigates legacy enterprise software (ERPs, CRMs) that wasn&#39;t built for AI.</p>
+<p>Most agents assume a clean API interface. Real-world software, however, is messy. Agents often fail simply because they cannot navigate the complexities of authentication, rate limits, and unstandardized data formats found in actual corporate IT stacks. Gartner estimates that nearly half of all agentic AI initiatives will be abandoned by 2027, largely due to this inability to demonstrate value in production workflows.</p>
+<ul>
+<li><strong>Forecast:</strong> <a href="https://www.okoone.com/spark/industry-insights/why-most-agentic-ai-projects-wont-survive-past-2027/">Why most agentic AI projects won&#39;t survive past 2027 (Okoone)</a></li>
+</ul>
+<hr>
+<h3>The Path Forward</h3>
+<p>Does this mean Agentic AI is a dead end? No. But it means we need to shift our mental model. The most successful implementations today aren&#39;t &quot;fully autonomous employees.&quot; They are <strong>supervised systems</strong>—agents that handle narrow, well-defined tasks with rigorous guardrails and human oversight.</p>
+<p>Generalization will come, but not from simply making the models bigger. It will come from better cognitive architectures, memory management, and robust error-handling frameworks that treat failure not as an anomaly, but as an expectation.</p>
+
+    <br>
+    <a href="/blog/" class="link">← Back to Blog</a>
+  
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

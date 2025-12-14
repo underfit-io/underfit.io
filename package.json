@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/generate-blog.js && vite build",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
+    "front-matter": "^4.0.2",
     "gh-pages": "^6.1.1",
+    "marked": "^17.0.1",
     "vite": "^5.2.0"
   }
 }
