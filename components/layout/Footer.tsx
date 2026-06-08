@@ -1,0 +1,114 @@
+import Link from 'next/link'
+
+const productLinks = [
+  { label: 'Gateway', href: '/products/gateway' },
+  { label: 'Data Fabric', href: '/products/data-fabric' },
+]
+
+const serviceLinks = [
+  { label: 'Consulting', href: '/services' },
+  { label: 'Resources', href: '/resources' },
+]
+
+const legalLinks = [
+  { label: 'Privacy', href: '/privacy' },
+  { label: 'Security', href: '/security' },
+  { label: 'Contact', href: '/contact' },
+]
+
+const sources = [
+  { name: 'IBM Security, Cost of a Data Breach Report 2024', url: 'https://www.ibm.com/reports/data-breach' },
+  { name: 'McKinsey State of AI Survey 2024', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai' },
+  { name: 'Research and Markets, AI Cybersecurity Market 2025', url: 'https://www.researchandmarkets.com/report/artificial-intelligence-based-cybersecurity' },
+  { name: 'Deepstrike, AI Cyber Attack Statistics 2025', url: 'https://deepstrike.io/blog/ai-cyber-attack-statistics-2025' },
+  { name: 'Brightside AI, Phishing Analysis 2025', url: 'https://www.brside.com/blog/ai-generated-phishing-vs-human-attacks-2025-risk-analysis' },
+  { name: 'Coherent Market Insights, Data Fabric Market 2025', url: 'https://www.coherentmarketinsights.com/blog/information-and-communication-technology/data-fabric-market-size-forecast-2025-2032-drivers-2476' },
+  { name: 'Total Assure, AI Cybersecurity Stats', url: 'https://www.totalassure.com/blog/ai-cybersecurity-stats' },
+]
+
+function LinkGroup({ title, links }: { title: string; links: { label: string; href: string }[] }) {
+  return (
+    <div>
+      <p className="text-kicker text-muted-2 mb-4">{title}</p>
+      <ul className="flex flex-col gap-2.5">
+        {links.map((l) => (
+          <li key={l.href}>
+            <Link
+              href={l.href}
+              className="text-[0.875rem] text-muted-2 hover:text-muted transition-colors duration-100"
+            >
+              {l.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-white/[0.08]" style={{ background: '#050505' }}>
+      <div className="max-w-container mx-auto px-6 py-16">
+        {/* Top row */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-12 md:gap-8 pb-12 border-b border-white/[0.06]">
+          {/* Brand */}
+          <div className="max-w-xs">
+            <div className="flex items-center gap-2.5 mb-4">
+              <svg viewBox="0 0 120 84" className="w-8 h-[22px] flex-none" aria-hidden="true">
+                <path d="M8,10 L8,46 Q8,68 30,68 Q52,68 52,46 L52,10"
+                  fill="none" stroke="#635BFF" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="60" cy="22" r="5.5" fill="#635BFF"/>
+                <line x1="68" y1="68" x2="68" y2="10" stroke="#635BFF" strokeWidth="9" strokeLinecap="round"/>
+                <line x1="68" y1="10" x2="104" y2="68" stroke="#635BFF" strokeWidth="9" strokeLinecap="round"/>
+                <line x1="104" y1="10" x2="104" y2="68" stroke="#635BFF" strokeWidth="9" strokeLinecap="round"/>
+              </svg>
+              <span className="text-[0.97rem] font-semibold tracking-[-0.02em] text-ink">underfit</span>
+            </div>
+            <p className="text-[0.875rem] text-muted-2 leading-relaxed">
+              Research company building AI security infrastructure for enterprises that take AI seriously.
+            </p>
+            <a
+              href="mailto:info@underfit.io"
+              className="inline-block mt-4 text-[0.875rem] text-muted hover:text-accent transition-colors"
+            >
+              info@underfit.io
+            </a>
+          </div>
+
+          <LinkGroup title="Products" links={productLinks} />
+          <LinkGroup title="Services" links={serviceLinks} />
+          <LinkGroup title="Legal" links={legalLinks} />
+        </div>
+
+        {/* Sources */}
+        <div className="py-6 border-b border-white/[0.06]">
+          <p className="text-[0.72rem] text-muted-2 mb-2 font-medium uppercase tracking-[0.08em]">Data sources</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            {sources.map((s) => (
+              <a
+                key={s.url}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[0.72rem] text-muted-2 hover:text-muted transition-colors"
+              >
+                {s.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom row */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pt-6">
+          <p className="text-[0.8rem] text-muted-2">
+            © {new Date().getFullYear()} underfit. All rights reserved.
+          </p>
+          <p className="text-[0.72rem] text-muted-2">
+            All statistics reflect 2024–2025 published research.
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}

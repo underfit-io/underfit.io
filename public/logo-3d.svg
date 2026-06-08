@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 84" width="200" height="140" role="img" aria-label="Underfit mark">
+  <title>underfit — UN mark (nav)</title>
+  <rect width="100%" height="100%" fill="none"/>
+  <!-- U letterform -->
+  <path d="M8,10 L8,46 Q8,68 30,68 Q52,68 52,46 L52,10"
+        fill="none" stroke="#635BFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Circle dot accent -->
+  <circle cx="60" cy="22" r="5.5" fill="#635BFF"/>
+  <!-- N letterform -->
+  <line x1="68" y1="68" x2="68" y2="10" stroke="#635BFF" stroke-width="9" stroke-linecap="round"/>
+  <line x1="68" y1="10" x2="104" y2="68" stroke="#635BFF" stroke-width="9" stroke-linecap="round"/>
+  <line x1="104" y1="10" x2="104" y2="68" stroke="#635BFF" stroke-width="9" stroke-linecap="round"/>
+</svg>

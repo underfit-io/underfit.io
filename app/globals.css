@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #050505;
+    overflow-x: hidden;
+  }
+
+  /* Subtle grid texture */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Mintlify-inspired ambient glows */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 90% 55% at 50% -5%, rgba(99, 91, 255, 0.22), transparent 65%),
+      radial-gradient(ellipse 50% 35% at 10% 20%, rgba(99, 91, 255, 0.07), transparent 40%),
+      radial-gradient(ellipse 40% 30% at 90% 85%, rgba(162, 89, 255, 0.05), transparent 35%);
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .border-hairline {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .border-hairline-strong {
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+  .bg-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .text-display {
+    font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+    line-height: 0.94;
+    letter-spacing: -0.07em;
+    font-weight: 700;
+  }
+  .text-section {
+    font-size: clamp(1.75rem, 2.8vw, 2.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+  }
+  .text-kicker {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
