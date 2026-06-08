@@ -88,7 +88,7 @@ underfit.io/
 ├── public/
 │   ├── CNAME                        # underfit.io — required for GitHub Pages custom domain
 │   ├── .nojekyll                    # Disables Jekyll processing on GitHub Pages
-│   ├── favicon.svg                  # UN mark (U + dot + N in #635BFF)
+│   ├── favicon.svg                  # Brand favicon (same as logo.svg)
 │   └── logo.svg                     # Full-size brand logo (SVG)
 │
 └── .github/
@@ -128,7 +128,7 @@ Fixed dark canvas with a large radial purple glow from the top-centre, a subtle 
 
 ### Logo
 
-UN combined lettermark — U shape + separator dot + N, all in `#635BFF`. Inline SVG in `TopNav.tsx` and `Footer.tsx`. Full-size at `public/logo.svg`.
+Brand logo SVG at `public/logo.svg`. Rendered via `<img>` in `TopNav.tsx` and `Footer.tsx`. Same file serves as `public/favicon.svg`.
 
 ---
 

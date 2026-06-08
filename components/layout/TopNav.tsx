@@ -8,20 +8,12 @@ import AnnouncementBanner from './AnnouncementBanner'
 
 function BrandMark() {
   return (
-    <Link href="/" className="flex items-center gap-2.5 group" aria-label="underfit home">
-      <svg
-        viewBox="0 0 120 84"
-        className="w-9 h-[25px] flex-none"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M8,10 L8,46 Q8,68 30,68 Q52,68 52,46 L52,10"
-          fill="none" stroke="#635BFF" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="60" cy="22" r="5.5" fill="#635BFF"/>
-        <line x1="68" y1="68" x2="68" y2="10" stroke="#635BFF" strokeWidth="9" strokeLinecap="round"/>
-        <line x1="68" y1="10" x2="104" y2="68" stroke="#635BFF" strokeWidth="9" strokeLinecap="round"/>
-        <line x1="104" y1="10" x2="104" y2="68" stroke="#635BFF" strokeWidth="9" strokeLinecap="round"/>
-      </svg>
+    <Link href="/" className="flex items-center gap-2 group" aria-label="underfit home">
+      <img
+        src="/logomark.svg"
+        alt=""
+        className="h-8 w-8 flex-none"
+      />
       <span className="text-[0.97rem] font-semibold tracking-[-0.02em] text-ink">
         underfit
       </span>

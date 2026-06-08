@@ -56,15 +56,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-12 md:gap-8 pb-12 border-b border-white/[0.06]">
           {/* Brand */}
           <div className="max-w-xs">
-            <div className="flex items-center gap-2.5 mb-4">
-              <svg viewBox="0 0 120 84" className="w-8 h-[22px] flex-none" aria-hidden="true">
-                <path d="M8,10 L8,46 Q8,68 30,68 Q52,68 52,46 L52,10"
-                  fill="none" stroke="#635BFF" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
-                <circle cx="60" cy="22" r="5.5" fill="#635BFF"/>
-                <line x1="68" y1="68" x2="68" y2="10" stroke="#635BFF" strokeWidth="9" strokeLinecap="round"/>
-                <line x1="68" y1="10" x2="104" y2="68" stroke="#635BFF" strokeWidth="9" strokeLinecap="round"/>
-                <line x1="104" y1="10" x2="104" y2="68" stroke="#635BFF" strokeWidth="9" strokeLinecap="round"/>
-              </svg>
+            <div className="flex items-center gap-2 mb-4">
+              <img src="/logomark.svg" alt="" className="h-7 w-7 flex-none" />
               <span className="text-[0.97rem] font-semibold tracking-[-0.02em] text-ink">underfit</span>
             </div>
             <p className="text-[0.875rem] text-muted-2 leading-relaxed">
