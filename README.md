@@ -64,7 +64,6 @@ underfit.io/
 │   ├── services/page.tsx            # Consulting services
 │   ├── contact/page.tsx             # Contact form → info@underfit.io
 │   ├── resources/page.tsx           # Resources hub (coming soon)
-│   ├── blog/                        # Insights / blog
 │   ├── privacy/page.tsx
 │   └── security/page.tsx
 │
@@ -84,14 +83,13 @@ underfit.io/
 │       └── Pill.tsx                 # Status badge (accent / default)
 │
 ├── content/
-│   ├── nav.ts                       # Navigation structure (drives TopNav)
-│   └── blog-posts.ts                # Blog post metadata
+│   └── nav.ts                       # Navigation structure (drives TopNav)
 │
 ├── public/
 │   ├── CNAME                        # underfit.io — required for GitHub Pages custom domain
 │   ├── .nojekyll                    # Disables Jekyll processing on GitHub Pages
 │   ├── favicon.svg                  # UN mark (U + dot + N in #635BFF)
-│   └── logo*.svg                    # Logo variants
+│   └── logo.svg                     # Full-size brand logo (SVG)
 │
 └── .github/
     └── workflows/
