@@ -17,28 +17,28 @@ const cardStyle = {
 
 const stats = [
   {
-    value: '$3.6B',
-    label: 'Data Fabric Market (2025) — growing at 25% CAGR as enterprises race to unify data for AI.',
-    source: 'Coherent Market Insights',
-    sourceUrl: 'https://www.coherentmarketinsights.com/blog/information-and-communication-technology/data-fabric-market-size-forecast-2025-2032-drivers-2476',
+    value: '7%',
+    label: 'Enterprises that say their data is completely ready for AI adoption.',
+    source: 'Cloudera + Harvard Business Review, 2026',
+    sourceUrl: 'https://www.cloudera.com/about/news-and-blogs/press-releases/2026-03-05-only-7-percent-of-enterprises-say-their-data-is-completely-ready-for-ai-according-to-new-report-from-cloudera-and-harvard-business-review-analytic-services-reveals.html',
   },
   {
-    value: '$17B',
-    label: 'Projected data fabric market by 2032.',
-    source: 'Coherent Market Insights',
-    sourceUrl: 'https://www.coherentmarketinsights.com/blog/information-and-communication-technology/data-fabric-market-size-forecast-2025-2032-drivers-2476',
+    value: '60%',
+    label: 'AI projects unsupported by AI-ready data are predicted to be abandoned through 2026.',
+    source: 'Gartner, 2025',
+    sourceUrl: 'https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk',
   },
   {
-    value: '70%+',
-    label: 'Of organizations report challenges integrating disparate data sources.',
-    source: 'Verified Market Reports',
-    sourceUrl: 'https://www.verifiedmarketreports.com/product/global-data-fabric-market-size-and-forecast-to-2025/',
+    value: '80%',
+    label: 'Of a data scientist\'s time is spent preparing and cleaning data — not building models.',
+    source: 'IBM / Anaconda Developer Survey, 2025',
+    sourceUrl: 'https://www.ibm.com/think/insights/cost-of-poor-data-quality',
   },
   {
-    value: '25%',
-    label: 'CAGR growth driven by AI adoption and cloud complexity.',
-    source: 'Coherent Market Insights',
-    sourceUrl: 'https://www.coherentmarketinsights.com/blog/information-and-communication-technology/data-fabric-market-size-forecast-2025-2032-drivers-2476',
+    value: '73%',
+    label: 'Organizations say they should prioritize AI data quality more than they currently do.',
+    source: 'Cloudera + Harvard Business Review, 2026',
+    sourceUrl: 'https://www.cloudera.com/about/news-and-blogs/press-releases/2026-03-05-only-7-percent-of-enterprises-say-their-data-is-completely-ready-for-ai-according-to-new-report-from-cloudera-and-harvard-business-review-analytic-services-reveals.html',
   },
 ]
 

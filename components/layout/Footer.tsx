@@ -17,13 +17,15 @@ const legalLinks = [
 ]
 
 const sources = [
-  { name: 'IBM Security, Cost of a Data Breach Report 2024', url: 'https://www.ibm.com/reports/data-breach' },
-  { name: 'McKinsey State of AI Survey 2024', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai' },
-  { name: 'Research and Markets, AI Cybersecurity Market 2025', url: 'https://www.researchandmarkets.com/report/artificial-intelligence-based-cybersecurity' },
-  { name: 'Deepstrike, AI Cyber Attack Statistics 2025', url: 'https://deepstrike.io/blog/ai-cyber-attack-statistics-2025' },
-  { name: 'Brightside AI, Phishing Analysis 2025', url: 'https://www.brside.com/blog/ai-generated-phishing-vs-human-attacks-2025-risk-analysis' },
-  { name: 'Coherent Market Insights, Data Fabric Market 2025', url: 'https://www.coherentmarketinsights.com/blog/information-and-communication-technology/data-fabric-market-size-forecast-2025-2032-drivers-2476' },
-  { name: 'Total Assure, AI Cybersecurity Stats', url: 'https://www.totalassure.com/blog/ai-cybersecurity-stats' },
+  { name: 'IBM Cost of a Data Breach Report, 2025', url: 'https://www.ibm.com/reports/data-breach' },
+  { name: 'IBM: AI Model Breaches & Access Controls, 2025', url: 'https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls' },
+  { name: 'McKinsey State of AI, 2025', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai' },
+  { name: 'Gartner: Information Security & AI Cybersecurity Spending, 2025', url: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-29-gartner-forecasts-worldwide-end-user-spending-on-information-security-to-total-213-billion-us-dollars-in-2025' },
+  { name: 'Gartner: Worldwide AI Spending $2.5T, 2026', url: 'https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026' },
+  { name: 'Gartner: Lack of AI-Ready Data Puts AI Projects at Risk, 2025', url: 'https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk' },
+  { name: 'Gartner CxO Survey: AI Skills Gap, 2025', url: 'https://www.gartner.com/en/newsroom/press-releases/2026-05-13-gartner-predicts-by-2027-50-percent-of-enterprises-without-a-people-centric-ai-strategy-will-lose-their-top-ai-talent' },
+  { name: 'ISC2: Shadow AI Report, 2025', url: 'https://community.isc2.org/t5/Industry-News/Shadow-AI-on-the-Rise-50-of-Employees-Using-Unapproved-AI-Tools/td-p/79019' },
+  { name: 'Cloudera + Harvard Business Review: AI Data Readiness, 2026', url: 'https://www.cloudera.com/about/news-and-blogs/press-releases/2026-03-05-only-7-percent-of-enterprises-say-their-data-is-completely-ready-for-ai-according-to-new-report-from-cloudera-and-harvard-business-review-analytic-services-reveals.html' },
 ]
 
 function LinkGroup({ title, links }: { title: string; links: { label: string; href: string }[] }) {

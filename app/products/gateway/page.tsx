@@ -17,28 +17,28 @@ const cardStyle = {
 
 const stats = [
   {
-    value: '$28.5B',
-    label: 'AI Cybersecurity Market (2025) — rapidly expanding as enterprises invest in AI defense.',
-    source: 'Research and Markets',
-    sourceUrl: 'https://www.researchandmarkets.com/report/artificial-intelligence-based-cybersecurity',
+    value: '50%',
+    label: 'Employees use AI tools not sanctioned by their employer — shadow AI operating outside IT visibility.',
+    source: 'ISC2, 2025',
+    sourceUrl: 'https://community.isc2.org/t5/Industry-News/Shadow-AI-on-the-Rise-50-of-Employees-Using-Unapproved-AI-Tools/td-p/79019',
   },
   {
-    value: '82.6%',
-    label: 'Of phishing emails now use AI in some form — text generation, obfuscation, or personalization.',
-    source: 'Deepstrike (2025)',
-    sourceUrl: 'https://deepstrike.io/blog/ai-cyber-attack-statistics-2025',
+    value: '25%',
+    label: 'Organizations with fully implemented AI governance programs — despite 88% reporting active AI use.',
+    source: 'Multiple surveys, 2025',
+    sourceUrl: 'https://www.knostic.ai/blog/ai-governance-statistics',
   },
   {
-    value: '72%',
-    label: 'AI-assisted cyberattacks increased since 2024 across all sectors.',
-    source: 'Total Assure',
-    sourceUrl: 'https://www.totalassure.com/blog/ai-cybersecurity-stats',
+    value: '13%',
+    label: 'Organizations that reported breaches of AI models or applications in 2025.',
+    source: 'IBM Cost of a Data Breach Report, 2025',
+    sourceUrl: 'https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls',
   },
   {
-    value: '$5.72M',
-    label: 'Average cost of an AI-powered data breach — 13% higher than traditional breaches.',
-    source: 'Deepstrike (2025)',
-    sourceUrl: 'https://deepstrike.io/blog/ai-cyber-attack-statistics-2025',
+    value: '97%',
+    label: 'Of AI model breaches involved organizations that lacked proper AI access controls.',
+    source: 'IBM Cost of a Data Breach Report, 2025',
+    sourceUrl: 'https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls',
   },
 ]
 

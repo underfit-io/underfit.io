@@ -185,13 +185,15 @@ The `public/CNAME` file is included in every build so the custom domain is never
 
 Statistics used across the site are sourced from published 2024–2025 research:
 
-- IBM Security — [Cost of a Data Breach Report 2024](https://www.ibm.com/reports/data-breach)
-- McKinsey & Company — [State of AI Survey 2024](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai)
-- Research and Markets — [AI Cybersecurity Market 2025](https://www.researchandmarkets.com/report/artificial-intelligence-based-cybersecurity)
-- Deepstrike — [AI Cyber Attack Statistics 2025](https://deepstrike.io/blog/ai-cyber-attack-statistics-2025)
-- Brightside AI — [Phishing Analysis 2025](https://www.brside.com/blog/ai-generated-phishing-vs-human-attacks-2025-risk-analysis)
-- Coherent Market Insights — [Data Fabric Market 2025–2032](https://www.coherentmarketinsights.com/blog/information-and-communication-technology/data-fabric-market-size-forecast-2025-2032-drivers-2476)
-- Total Assure — [AI Cybersecurity Stats](https://www.totalassure.com/blog/ai-cybersecurity-stats)
+- IBM — [Cost of a Data Breach Report, 2025](https://www.ibm.com/reports/data-breach)
+- IBM — [AI Model Breaches & Access Controls, 2025](https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls)
+- McKinsey & Company — [State of AI, 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai)
+- Gartner — [Information Security & AI Cybersecurity Spending, 2025](https://www.gartner.com/en/newsroom/press-releases/2025-07-29-gartner-forecasts-worldwide-end-user-spending-on-information-security-to-total-213-billion-us-dollars-in-2025)
+- Gartner — [Worldwide AI Spending $2.5T, 2026](https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026)
+- Gartner — [Lack of AI-Ready Data Puts AI Projects at Risk, 2025](https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk)
+- Gartner — [CxO Survey: AI Skills Gap, 2025](https://www.gartner.com/en/newsroom/press-releases/2026-05-13-gartner-predicts-by-2027-50-percent-of-enterprises-without-a-people-centric-ai-strategy-will-lose-their-top-ai-talent)
+- ISC2 — [Shadow AI Report, 2025](https://community.isc2.org/t5/Industry-News/Shadow-AI-on-the-Rise-50-of-Employees-Using-Unapproved-AI-Tools/td-p/79019)
+- Cloudera + Harvard Business Review — [AI Data Readiness, 2026](https://www.cloudera.com/about/news-and-blogs/press-releases/2026-03-05-only-7-percent-of-enterprises-say-their-data-is-completely-ready-for-ai-according-to-new-report-from-cloudera-and-harvard-business-review-analytic-services-reveals.html)
 
 ---
 

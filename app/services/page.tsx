@@ -18,28 +18,28 @@ const cardStyle = {
 
 const stats = [
   {
-    value: '1,265%',
-    label: 'AI-generated phishing attacks surged since 2023.',
-    source: 'Brightside AI',
-    sourceUrl: 'https://www.brside.com/blog/ai-generated-phishing-vs-human-attacks-2025-risk-analysis',
+    value: '88%',
+    label: 'Enterprise AI pilots that never reach production — most initiatives stall before delivering value.',
+    source: 'Industry research, 2025',
+    sourceUrl: 'https://www.softwareseni.com/why-88-to-95-percent-of-enterprise-ai-pilots-never-reach-production/',
   },
   {
-    value: '82.6%',
-    label: 'Of phishing emails now use AI for generation or obfuscation.',
-    source: 'Deepstrike',
-    sourceUrl: 'https://deepstrike.io/blog/ai-cyber-attack-statistics-2025',
+    value: '94%',
+    label: 'Business leaders face AI-critical skill shortages today.',
+    source: 'Gartner CxO Survey, 2025',
+    sourceUrl: 'https://www.gartner.com/en/newsroom/press-releases/2026-05-13-gartner-predicts-by-2027-50-percent-of-enterprises-without-a-people-centric-ai-strategy-will-lose-their-top-ai-talent',
   },
   {
-    value: '$28.5B',
-    label: 'AI cybersecurity market at $28.5B in 2025, growing 24% CAGR.',
-    source: 'Research and Markets',
-    sourceUrl: 'https://www.researchandmarkets.com/report/artificial-intelligence-based-cybersecurity',
+    value: '80%',
+    label: 'Organizations are not seeing tangible business impact from their AI initiatives.',
+    source: 'McKinsey State of AI, 2025',
+    sourceUrl: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai',
   },
   {
-    value: '87%',
-    label: 'Of organizations experienced an AI-driven cyberattack in the past year.',
-    source: 'Deepstrike',
-    sourceUrl: 'https://deepstrike.io/blog/ai-cyber-attack-statistics-2025',
+    value: '$2.5T',
+    label: 'Worldwide AI spending forecast for 2026 — a 47% year-over-year increase that enterprises must navigate.',
+    source: 'Gartner, 2026',
+    sourceUrl: 'https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026',
   },
 ]
 

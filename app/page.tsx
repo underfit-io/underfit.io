@@ -18,28 +18,28 @@ const cardStyle = {
 
 const stats = [
   {
-    value: '$28.5B',
-    label: 'AI cybersecurity market in 2025, projected to reach $85B by 2030 at 24% CAGR.',
-    source: 'Research and Markets',
-    sourceUrl: 'https://www.researchandmarkets.com/report/artificial-intelligence-based-cybersecurity',
+    value: '88%',
+    label: 'Organizations now use AI in at least one business function — up from 50% in 2022.',
+    source: 'McKinsey State of AI, 2025',
+    sourceUrl: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai',
   },
   {
-    value: '87%',
-    label: 'Of organizations experienced an AI-driven cyberattack in the past year.',
-    source: 'Deepstrike (2025)',
-    sourceUrl: 'https://deepstrike.io/blog/ai-cyber-attack-statistics-2025',
-  },
-  {
-    value: '$4.88M',
-    label: 'Average cost of a data breach in 2024 — the highest on record.',
-    source: 'IBM Cost of a Data Breach Report',
+    value: '$4.44M',
+    label: 'Global average cost of a data breach in 2025 — highest ever recorded.',
+    source: 'IBM Cost of a Data Breach Report, 2025',
     sourceUrl: 'https://www.ibm.com/reports/data-breach',
   },
   {
-    value: '78%',
-    label: 'Of organizations now use AI in at least one business function, up from 55% in 2023.',
-    source: 'McKinsey (2024)',
-    sourceUrl: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai',
+    value: '$51.3B',
+    label: 'AI-specific cybersecurity market projected for 2026 — nearly doubling from $25.9B in 2025.',
+    source: 'Gartner, 2025',
+    sourceUrl: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-29-gartner-forecasts-worldwide-end-user-spending-on-information-security-to-total-213-billion-us-dollars-in-2025',
+  },
+  {
+    value: '$2.5T',
+    label: 'Worldwide AI spending forecast for 2026 — a 47% increase from $1.5T in 2025.',
+    source: 'Gartner, 2026',
+    sourceUrl: 'https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026',
   },
 ]
 
