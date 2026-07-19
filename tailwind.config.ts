@@ -9,58 +9,70 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#050505',
+        // Gateway platform tokens, resolved through CSS variables so the
+        // site can flip between dark (default) and light themes
+        canvas: 'var(--c-canvas)',
         surface: {
-          DEFAULT: '#0e0f11',
-          2: '#13161a',
-          3: '#171b20',
+          DEFAULT: 'var(--c-surface)',
+          2: 'var(--c-surface-2)',
+          3: 'var(--c-surface-3)',
         },
         accent: {
           DEFAULT: '#635BFF',
           strong: '#7A73FF',
+          light: '#818cf8',
           on: '#ffffff',
         },
-        ink: '#f5f5ef',
+        ink: 'var(--c-ink)',
+        bright: 'var(--c-bright)',
         muted: {
-          DEFAULT: '#b4b4ae',
-          2: '#83837e',
+          DEFAULT: 'var(--c-muted)',
+          2: 'var(--c-muted-2)',
         },
+        line: 'rgb(var(--line-rgb) / <alpha-value>)',
+        success: '#10b981',
+        warning: '#f59e0b',
+        danger: '#ef4444',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['var(--font-display)', 'var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace'],
       },
       borderRadius: {
-        card: '28px',
-        'card-md': '22px',
-        'card-sm': '14px',
+        card: '16px',
+        'card-md': '12px',
+        'card-sm': '8px',
       },
       maxWidth: {
-        container: '1180px',
+        container: '1200px',
       },
       boxShadow: {
-        card: '0 28px 70px rgba(0,0,0,0.44)',
-        'accent-glow': '0 14px 30px rgba(99,91,255,0.25)',
+        card: 'var(--shadow-card)',
+        'accent-glow': '0 0 24px rgba(99,91,255,0.2)',
         'accent-dot': '0 0 18px rgba(99,91,255,0.7)',
       },
+      backgroundImage: {
+        'cta-gradient': 'linear-gradient(135deg, #635BFF 0%, #A259FF 100%)',
+      },
       animation: {
-        'fade-up': 'fadeUp 220ms ease both',
-        'band-move': 'bandMove 18s linear infinite',
+        'fade-up': 'fadeUp 260ms ease both',
+        marquee: 'marquee 32s linear infinite',
+        blink: 'blink 1.1s steps(1) infinite',
       },
       keyframes: {
         fadeUp: {
           '0%': { opacity: '0', transform: 'translateY(8px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        bandMove: {
-          '0%': { transform: 'translateX(0) skewX(-12deg)' },
-          '100%': { transform: 'translateX(-20%) skewX(-12deg)' },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
-      },
-      backgroundImage: {
-        'card-gradient': 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-        'cta-gradient': 'linear-gradient(135deg, #635BFF 0%, #A259FF 100%)',
-        'ambient': 'radial-gradient(ellipse at 15% 10%, rgba(99,91,255,0.07), transparent 18%), radial-gradient(ellipse at 85% 80%, rgba(162,89,255,0.04), transparent 14%)',
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
       },
     },
   },

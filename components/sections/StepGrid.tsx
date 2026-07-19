@@ -12,9 +12,9 @@ interface StepGridProps {
 
 export default function StepGrid({ steps, variant = 'default' }: StepGridProps) {
   const cardStyle = {
-    background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-    border: '1px solid rgba(255,255,255,0.08)',
-    boxShadow: '0 28px 70px rgba(0,0,0,0.44)',
+    background: 'var(--c-surface)',
+    border: '1px solid var(--border)',
+    boxShadow: 'var(--shadow-card)',
   }
 
   const gridClass = variant === 'large'

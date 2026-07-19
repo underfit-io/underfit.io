@@ -1,43 +1,54 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Eyebrow from '@/components/ui/Eyebrow'
+import Reveal from '@/components/motion/Reveal'
+import CountUp from '@/components/motion/CountUp'
+import FlowDiagram from '@/components/viz/FlowDiagram'
+import FabricLayer from '@/components/viz/FabricLayer'
+import ProviderMarquee from '@/components/viz/ProviderMarquee'
+import BrowserFrame from '@/components/viz/BrowserFrame'
 import StepGrid from '@/components/sections/StepGrid'
 import Pill from '@/components/ui/Pill'
 
 export const metadata: Metadata = {
-  title: 'underfit.io',
+  title: { absolute: 'Underfit | AI Security Company: LLM Gateway & Data Fabric' },
   description:
-    'Underfit is a research company at the intersection of AI and cybersecurity — engineers, data scientists, and security experts building the infrastructure enterprises need.',
-}
-
-const cardStyle = {
-  background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-  border: '1px solid rgba(255,255,255,0.08)',
-  boxShadow: '0 28px 70px rgba(0,0,0,0.44)',
+    'Underfit is an AI cybersecurity and research company. We secure AI agents, LLM apps, and data pipelines with Gateway, an AI control plane, and Data Fabric, an AI-ready data layer.',
+  alternates: { canonical: '/' },
 }
 
 const stats = [
   {
-    value: '88%',
-    label: 'Organizations now use AI in at least one business function — up from 50% in 2022.',
+    value: 88,
+    suffix: '%',
+    decimals: 0,
+    label: 'Organizations now use AI in at least one business function, up from 50% in 2022.',
     source: 'McKinsey State of AI, 2025',
     sourceUrl: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai',
   },
   {
-    value: '$4.44M',
-    label: 'Global average cost of a data breach in 2025 — highest ever recorded.',
+    value: 4.44,
+    prefix: '$',
+    suffix: 'M',
+    decimals: 2,
+    label: 'Global average cost of a data breach in 2025, highest ever recorded.',
     source: 'IBM Cost of a Data Breach Report, 2025',
     sourceUrl: 'https://www.ibm.com/reports/data-breach',
   },
   {
-    value: '$51.3B',
-    label: 'AI-specific cybersecurity market projected for 2026 — nearly doubling from $25.9B in 2025.',
+    value: 51.3,
+    prefix: '$',
+    suffix: 'B',
+    decimals: 1,
+    label: 'AI-specific cybersecurity market projected for 2026, nearly doubling from $25.9B in 2025.',
     source: 'Gartner, 2025',
     sourceUrl: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-29-gartner-forecasts-worldwide-end-user-spending-on-information-security-to-total-213-billion-us-dollars-in-2025',
   },
   {
-    value: '$2.5T',
-    label: 'Worldwide AI spending forecast for 2026 — a 47% increase from $1.5T in 2025.',
+    value: 2.5,
+    prefix: '$',
+    suffix: 'T',
+    decimals: 1,
+    label: 'Worldwide AI spending forecast for 2026, a 47% increase from $1.5T in 2025.',
     source: 'Gartner, 2026',
     sourceUrl: 'https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026',
   },
@@ -52,7 +63,7 @@ const methodologySteps = [
   {
     number: '02',
     title: 'Threat Model',
-    description: 'Identify AI-specific attack vectors — prompt injection, data poisoning, model inversion, and credential sprawl. Built on MITRE ATLAS and OWASP LLM Top 10.',
+    description: 'Identify AI-specific attack vectors, prompt injection, data poisoning, model inversion, and credential sprawl. Built on MITRE ATLAS and OWASP LLM Top 10.',
   },
   {
     number: '03',
@@ -72,131 +83,249 @@ const methodologySteps = [
   {
     number: '06',
     title: 'Respond & Evolve',
-    description: 'Structured incident response, policy updates, and continuous improvement cycles — keeping your AI posture resilient as threats evolve. Based on NIST CSF Respond/Recover and PDCA.',
+    description: 'Structured incident response, policy updates, and continuous improvement cycles, keeping your AI posture resilient as threats evolve. Based on NIST CSF Respond/Recover and PDCA.',
   },
 ]
 
-const products = [
-  {
-    pill: 'Alpha · Early testers',
-    pillVariant: 'accent' as const,
-    title: 'Gateway',
-    description:
-      'The control plane for your AI agents. Gateway sits between clients and every AI provider — authenticating with opaque virtual keys, enforcing policy, applying guardrails, routing traffic, and keeping a full audit trail from one endpoint.',
-    href: '/products/gateway',
-  },
-  {
-    pill: 'Coming soon · Alpha waitlist',
-    pillVariant: 'default' as const,
-    title: 'Data Fabric',
-    description:
-      'One intelligence layer for every data source. Data Fabric unifies tickets, CRM, inventory, ERP, and internal systems into a single AI-ready data layer — giving teams the clean, governed foundation that makes AI accurate and reliable.',
-    href: '/products/data-fabric',
-  },
+const services = [
+  { title: 'Secure AI Architecture', desc: 'Threat modeling, risk assessment, and security-first design for AI systems.' },
+  { title: 'Guardrailed LLM Apps', desc: 'Build LLM applications with content filtering, prompt safety, and policy enforcement.' },
+  { title: 'AI-Ready Data Pipelines', desc: 'Design and implement clean, governed data pipelines that feed AI models reliably.' },
+  { title: 'Implementation & Enablement', desc: 'End-to-end deployment, runbooks, and training to get your team running securely.' },
 ]
+
+function SectionHeader({ index, kicker, title, sub }: { index: string; kicker: string; title: string; sub?: string }) {
+  return (
+    <div className="mb-10">
+      <p className="text-eyebrow font-mono text-muted-2 mb-3">
+        {index} / {kicker}
+      </p>
+      <h2 className="text-section font-display text-bright" style={{ maxWidth: '24ch' }}>
+        {title}
+      </h2>
+      {sub && (
+        <p className="text-[0.98rem] text-muted leading-relaxed mt-4 max-w-[62ch]">{sub}</p>
+      )}
+    </div>
+  )
+}
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero — company story */}
-      <section className="max-w-container mx-auto px-6 pt-20 pb-14">
-        <Eyebrow variant="default">AI Security Research</Eyebrow>
-        <h1 className="text-display font-bold text-ink mb-5" style={{ maxWidth: '18ch' }}>
-          Engineers, researchers, and defenders — building AI security infrastructure.
-        </h1>
-        <p className="text-[1.08rem] text-muted leading-[1.65] max-w-[58ch] mb-5">
-          Underfit is a research company at the intersection of AI and cybersecurity. Our team of
-          engineers, data scientists, and cybersecurity experts builds the security infrastructure
-          that AI-driven enterprises need — from control planes and identity governance to unified
-          data layers and hands-on implementation.
-        </p>
-        <p className="text-[1rem] text-muted leading-[1.65] max-w-[56ch] mb-8">
-          We work from first principles: study the threat landscape, design around real attack
-          vectors, and ship tools that hold up in production.
-        </p>
-        <Link
-          href="#products"
-          className="px-5 py-3 rounded-full text-[0.9rem] font-semibold bg-accent text-accent-on transition-all hover:bg-accent-strong shadow-accent-glow"
-        >
-          Explore products & services
-        </Link>
+      {/* ── Hero ─────────────────────────────────────── */}
+      <section className="max-w-container mx-auto px-6 pt-16 pb-14 lg:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-12 items-center">
+          <div>
+            <h1 className="text-display font-display text-bright mb-6" style={{ maxWidth: '16ch' }}>
+              Secure the AI your business actually runs.
+            </h1>
+            <p className="text-[1.08rem] text-muted leading-[1.65] max-w-[54ch] mb-7">
+              Underfit is an AI cybersecurity and research company helping teams design, deploy,
+              and defend AI agents, LLM apps, and data pipelines.
+            </p>
+            <ul className="flex flex-col gap-3 mb-9">
+              {[
+                ['Gateway', 'The control plane for your AI agents.'],
+                ['Data Fabric', 'One intelligence layer for every data source.'],
+                ['Services', 'From idea to secure deployment with a clear methodology.'],
+              ].map(([lead, rest]) => (
+                <li key={lead} className="flex gap-3 text-[0.95rem] text-muted">
+                  <span className="text-accent-light font-bold flex-none" aria-hidden="true">▸</span>
+                  <span>
+                    <strong className="text-ink font-semibold">{lead}: </strong>
+                    {rest}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="px-6 py-3 rounded-card-sm text-[0.9rem] font-semibold bg-cta-gradient text-accent-on hover:shadow-accent-glow transition-shadow"
+              >
+                Request Gateway access
+              </Link>
+              <Link
+                href="/contact"
+                className="px-6 py-3 rounded-card-sm text-[0.9rem] font-semibold border border-line/[0.12] text-muted hover:text-ink hover:bg-line/[0.04] transition-colors"
+              >
+                Talk to us about your AI stack
+              </Link>
+            </div>
+          </div>
+          <Reveal delay={120}>
+            <FlowDiagram variant="gateway" />
+          </Reveal>
+        </div>
       </section>
 
-      {/* Stats strip */}
-      <section className="border-y border-white/[0.07]" style={{ background: 'rgba(255,255,255,0.015)' }}>
-        <div className="max-w-container mx-auto px-6 py-12">
+      {/* ── Provider marquee ─────────────────────────── */}
+      <ProviderMarquee />
+
+      {/* ── Stats strip ──────────────────────────────── */}
+      <section className="border-b border-line/[0.06]" style={{ background: 'var(--c-band)' }}>
+        <div className="max-w-container mx-auto px-6 py-14">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {stats.map((s, i) => (
-              <div key={i} className="rounded-card-sm p-5" style={cardStyle}>
-                <p className="text-[2rem] font-bold leading-none tracking-[-0.04em] text-accent mb-2">{s.value}</p>
-                <p className="text-[0.82rem] text-muted leading-snug mb-2">{s.label}</p>
-                <p className="text-[0.7rem] text-muted-2">
-                  Source:{' '}
-                  <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                    {s.source}
-                  </a>
-                </p>
-              </div>
+              <Reveal key={s.source + s.value} delay={i * 80}>
+                <div className="rounded-card-md p-5 h-full bg-card">
+                  <p className="text-[2rem] font-display font-bold leading-none tracking-[-0.03em] text-accent-light mb-3">
+                    <CountUp to={s.value} prefix={s.prefix} suffix={s.suffix} decimals={s.decimals} />
+                  </p>
+                  <p className="text-[0.82rem] text-muted leading-snug mb-3">{s.label}</p>
+                  <p className="text-[0.7rem] font-mono text-muted-2">
+                    Source:{' '}
+                    <a href={s.sourceUrl} target="_blank" rel="noopener noreferrer" className="hover:text-accent-light transition-colors">
+                      {s.source}
+                    </a>
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Methodology */}
-      <section className="py-16" style={{ background: 'rgba(255,255,255,0.015)', borderTop: '1px solid rgba(255,255,255,0.07)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-        <div className="max-w-container mx-auto px-6">
-          <div className="max-w-[640px] mx-auto text-center mb-10">
-            <h2 className="text-section font-bold text-ink mb-3">Our methodology</h2>
-            <p className="text-[0.95rem] text-muted leading-relaxed">
-              Built on proven frameworks — NIST CSF, MITRE ATLAS, Zero Trust, ISO 27001, and OWASP — adapted for
-              the realities of AI-native systems.
-            </p>
+      {/* ── Who we are ───────────────────────────────── */}
+      <section className="max-w-container mx-auto px-6 py-20">
+        <Reveal>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10">
+            <p className="text-eyebrow font-mono text-muted-2">01 / Who we are</p>
+            <div>
+              <h2 className="text-section font-display text-bright mb-5">AI security for real teams.</h2>
+              <p className="text-[1.02rem] text-muted leading-[1.7] max-w-[58ch] mb-5">
+                Underfit is an AI tech, cybersecurity, and research company. We help startups and
+                enterprises build secure AI systems, from control planes and data governance to
+                hands-on implementation. Not generic tools; real methodology, practical results.
+              </p>
+              <p className="text-[1.02rem] text-muted leading-[1.7] max-w-[58ch]">
+                We’re engineers and builders from India. We grew up watching good technology stay
+                out of reach for the people who needed it most, so we’re making security and
+                innovation accessible to everyone, one step at a time.
+              </p>
+            </div>
           </div>
-          <StepGrid steps={methodologySteps} />
+        </Reveal>
+      </section>
+
+      {/* ── Methodology ──────────────────────────────── */}
+      <section className="py-20 border-y border-line/[0.06]" style={{ background: 'var(--c-band)' }}>
+        <div className="max-w-container mx-auto px-6">
+          <Reveal>
+            <SectionHeader
+              index="02"
+              kicker="Methodology"
+              title="Built on proven frameworks."
+              sub="NIST CSF, MITRE ATLAS, Zero Trust, ISO 27001, and OWASP: adapted for the realities of AI-native systems."
+            />
+          </Reveal>
+          <Reveal delay={100}>
+            <StepGrid steps={methodologySteps} />
+          </Reveal>
         </div>
       </section>
 
-      {/* Products */}
-      <section id="products" className="max-w-container mx-auto px-6 py-16">
-        <div className="max-w-[640px] mx-auto text-center mb-10">
-          <h2 className="text-section font-bold text-ink mb-3">Our products</h2>
-          <p className="text-[1rem] text-muted">Purpose-built infrastructure for AI security and data governance.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {products.map((p) => (
-            <div key={p.title} className="rounded-card p-7 flex flex-col" style={cardStyle}>
-              <Pill variant={p.pillVariant}>{p.pill}</Pill>
-              <h3 className="text-[1.3rem] font-bold text-ink mt-5 mb-3 tracking-[-0.03em]">{p.title}</h3>
-              <p className="text-[0.92rem] text-muted leading-relaxed flex-1">{p.description}</p>
-              <Link href={p.href} className="inline-block mt-6 text-[0.88rem] font-semibold text-accent hover:underline">
-                Learn more about {p.title} →
+      {/* ── Products ─────────────────────────────────── */}
+      <section id="products" className="max-w-container mx-auto px-6 py-20">
+        <Reveal>
+          <SectionHeader
+            index="03"
+            kicker="Products"
+            title="Infrastructure for AI security and data governance."
+          />
+        </Reveal>
+
+        {/* Gateway */}
+        <Reveal>
+          <div className="rounded-card bg-card p-7 md:p-10 mb-6 grid grid-cols-1 lg:grid-cols-[1fr_1.25fr] gap-10 items-center">
+            <div>
+              <Pill variant="accent">Alpha · Early testers</Pill>
+              <h3 className="text-[1.5rem] font-display font-bold text-bright mt-5 mb-3 tracking-[-0.02em]">Gateway</h3>
+              <p className="text-[0.94rem] text-muted leading-relaxed mb-5">
+                The control plane for your AI agents. Gateway sits between clients and every AI
+                provider, authenticating with opaque virtual keys, enforcing policy, applying
+                guardrails, routing traffic, and keeping a full audit trail from one endpoint.
+              </p>
+              <ul className="flex flex-col gap-2 mb-6">
+                {['Identity & authentication', 'Opaque virtual keys', 'Policy engine', 'Guardrails & content filtering', 'Intelligent routing', 'Full audit trail'].map((b) => (
+                  <li key={b} className="flex gap-2.5 text-[0.86rem] text-muted">
+                    <span className="text-accent-light font-bold flex-none" aria-hidden="true">▸</span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/products/gateway" className="accent-link text-[0.9rem] font-semibold text-accent-light">
+                Learn more about Gateway →
               </Link>
             </div>
-          ))}
-        </div>
+            <BrowserFrame
+              src="/product/dashboard.png"
+              alt="Gateway dashboard, virtual keys, request volume, token usage, and guardrails at a glance"
+              url="gateway.underfit.io/dashboard"
+            />
+          </div>
+        </Reveal>
+
+        {/* Data Fabric */}
+        <Reveal>
+          <div className="rounded-card bg-card p-7 md:p-10 grid grid-cols-1 lg:grid-cols-[1fr_1.25fr] gap-10 items-center">
+            <div>
+              <Pill variant="default">Coming soon · Alpha waitlist</Pill>
+              <h3 className="text-[1.5rem] font-display font-bold text-bright mt-5 mb-3 tracking-[-0.02em]">Data Fabric</h3>
+              <p className="text-[0.94rem] text-muted leading-relaxed mb-5">
+                One intelligence layer for every data source. Data Fabric unifies tickets, CRM,
+                inventory, ERP, and internal systems into a single AI-ready layer, actionable
+                insight for every level of your organization, from managers to executives.
+              </p>
+              <ul className="flex flex-col gap-2 mb-6">
+                {['Multi-source connectors', 'Canonical data models', 'AI-ready views & APIs', 'Reduced hallucinations', 'Lineage & governance'].map((b) => (
+                  <li key={b} className="flex gap-2.5 text-[0.86rem] text-muted">
+                    <span className="text-accent-light font-bold flex-none" aria-hidden="true">▸</span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/products/data-fabric" className="accent-link text-[0.9rem] font-semibold text-accent-light">
+                Learn more about Data Fabric →
+              </Link>
+            </div>
+            <FabricLayer />
+          </div>
+        </Reveal>
       </section>
 
-      {/* Got an idea? */}
-      <section
-        className="py-16"
-        style={{
-          background: 'rgba(255,255,255,0.015)',
-          borderTop: '1px solid rgba(255,255,255,0.07)',
-          borderBottom: '1px solid rgba(255,255,255,0.07)',
-        }}
-      >
-        <div className="max-w-container mx-auto px-6 text-center">
-          <h2 className="text-section font-bold text-ink mb-4">Got an idea? Ship it with us.</h2>
-          <p className="text-[1.05rem] text-muted leading-relaxed max-w-[52ch] mx-auto mb-8">
-            Our consulting team helps you design, build, and secure AI solutions — from early-stage
-            architecture to production deployment.
-          </p>
-          <Link
-            href="/services"
-            className="inline-block px-6 py-3 rounded-full text-[0.9rem] font-semibold bg-accent text-accent-on transition-all hover:bg-accent-strong shadow-accent-glow"
-          >
-            Explore consulting services
-          </Link>
+      {/* ── Services preview ─────────────────────────── */}
+      <section className="py-20 border-t border-line/[0.06]" style={{ background: 'var(--c-band)' }}>
+        <div className="max-w-container mx-auto px-6">
+          <Reveal>
+            <SectionHeader
+              index="04"
+              kicker="Services"
+              title="Got an idea? Ship it safely."
+              sub="Our services help you design, build, and secure AI solutions from concept to production."
+            />
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 80}>
+                <div className="rounded-card-md bg-card p-6 h-full">
+                  <h3 className="text-[1rem] font-semibold text-ink mb-2 tracking-[-0.01em]">{s.title}</h3>
+                  <p className="text-[0.86rem] text-muted leading-relaxed">{s.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={200}>
+            <div className="mt-10">
+              <Link
+                href="/services"
+                className="inline-block px-6 py-3 rounded-card-sm text-[0.9rem] font-semibold bg-cta-gradient text-accent-on hover:shadow-accent-glow transition-shadow"
+              >
+                Explore our services
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

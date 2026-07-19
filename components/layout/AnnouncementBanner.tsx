@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const announcements = [
   { text: 'Gateway is now in alpha', cta: 'Become an early tester', href: '/products/gateway' },
-  { text: 'Data Fabric approaching alpha — shape what we build', cta: 'Join the waitlist', href: '/contact' },
+  { text: 'Data Fabric is approaching alpha. Help shape what we build', cta: 'Join the waitlist', href: '/contact' },
   { text: 'AI-assisted cyberattacks up 72% since 2024', cta: 'See how we help', href: '/products/gateway' },
 ]
 

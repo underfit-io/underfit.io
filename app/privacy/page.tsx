@@ -1,51 +1,47 @@
 import type { Metadata } from 'next'
-import PageHero from '@/components/sections/PageHero'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — underfit',
-  description: 'underfit Privacy Policy.',
+  title: 'Privacy Policy',
+  description: 'How Underfit collects, uses, and protects your personal information.',
 }
+
+const sections = [
+  {
+    title: 'Information we collect',
+    body: 'We collect information you provide directly to us, such as when you fill out a contact form, request access to our products, or communicate with us via email.',
+  },
+  {
+    title: 'How we use your information',
+    body: 'We use your information to respond to your inquiries, provide services, improve our products, and communicate updates about Underfit.',
+  },
+  {
+    title: 'Data security',
+    body: 'We implement appropriate security measures to protect your personal information from unauthorized access, alteration, or disclosure.',
+  },
+  {
+    title: 'Contact',
+    body: 'Questions about this policy? Reach out at info@underfit.io.',
+  },
+]
 
 export default function PrivacyPage() {
   return (
-    <>
-      <PageHero
-        eyebrow="Legal"
-        title="Privacy Policy"
-        description="Last updated: June 2026"
-      />
-      <section className="max-w-container mx-auto px-6 pb-20">
-        <div
-          className="max-w-2xl rounded-card p-8 text-[0.95rem] text-muted leading-[1.75] space-y-6"
-          style={{
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-            border: '1px solid rgba(255,255,255,0.08)',
-          }}
-        >
-          <p>
-            This privacy policy describes how underfit (&ldquo;we&rdquo;, &ldquo;us&rdquo;) collects, uses, and protects information you share with us through this website or any of our products and services.
-          </p>
-          <div>
-            <h2 className="text-[1rem] font-semibold text-ink mb-2">Information we collect</h2>
-            <p>We collect information you provide directly — name, email address, and message content when you use our contact form or sign up for early access.</p>
-          </div>
-          <div>
-            <h2 className="text-[1rem] font-semibold text-ink mb-2">How we use it</h2>
-            <p>We use your information solely to respond to your inquiry, onboard you as a product tester, or deliver consulting services. We do not sell or share your data with third parties for marketing purposes.</p>
-          </div>
-          <div>
-            <h2 className="text-[1rem] font-semibold text-ink mb-2">Data retention</h2>
-            <p>We retain your information only as long as needed to maintain our relationship or fulfill legal obligations. You may request deletion at any time by emailing info@underfit.io.</p>
-          </div>
-          <div>
-            <h2 className="text-[1rem] font-semibold text-ink mb-2">Contact</h2>
-            <p>For privacy-related questions or requests, email <a href="mailto:info@underfit.io" className="text-accent hover:underline">info@underfit.io</a>.</p>
-          </div>
-          <p className="text-[0.82rem] text-muted-2 pt-4 border-t border-white/[0.06]">
-            This is a summary document. A full legal privacy policy will be published ahead of our general availability launch.
-          </p>
+    <section className="max-w-[760px] mx-auto px-6 pt-16 pb-24">
+      <p className="text-eyebrow font-mono text-muted-2 mb-4">Legal</p>
+      <h1 className="text-section font-display text-bright mb-3">Privacy Policy</h1>
+      <p className="text-[0.85rem] font-mono text-muted-2 mb-10">Last updated: July 2026</p>
+      <div className="governed-line mb-10" aria-hidden="true" />
+      <p className="text-[0.98rem] text-muted leading-[1.75] mb-10">
+        Your privacy is important to us. This Privacy Policy explains how Underfit collects, uses,
+        and protects your personal information when you use our website and services.
+      </p>
+      {sections.map((s, i) => (
+        <div key={s.title} className="mb-9">
+          <p className="text-eyebrow font-mono text-muted-2 mb-2">{String(i + 1).padStart(2, '0')}</p>
+          <h2 className="text-[1.15rem] font-display font-bold text-ink mb-3">{s.title}</h2>
+          <p className="text-[0.95rem] text-muted leading-[1.75]">{s.body}</p>
         </div>
-      </section>
-    </>
+      ))}
+    </section>
   )
 }

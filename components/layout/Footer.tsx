@@ -3,29 +3,32 @@ import Link from 'next/link'
 const productLinks = [
   { label: 'Gateway', href: '/products/gateway' },
   { label: 'Data Fabric', href: '/products/data-fabric' },
+  { label: 'Services', href: '/services' },
 ]
 
-const serviceLinks = [
-  { label: 'Consulting', href: '/services' },
+const companyLinks = [
+  { label: 'About Underfit', href: '/' },
   { label: 'Resources', href: '/resources' },
-]
-
-const legalLinks = [
-  { label: 'Privacy', href: '/privacy' },
-  { label: 'Security', href: '/security' },
   { label: 'Contact', href: '/contact' },
 ]
 
-const sources = [
-  { name: 'IBM Cost of a Data Breach Report, 2025', url: 'https://www.ibm.com/reports/data-breach' },
-  { name: 'IBM: AI Model Breaches & Access Controls, 2025', url: 'https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls' },
-  { name: 'McKinsey State of AI, 2025', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai' },
-  { name: 'Gartner: Information Security & AI Cybersecurity Spending, 2025', url: 'https://www.gartner.com/en/newsroom/press-releases/2025-07-29-gartner-forecasts-worldwide-end-user-spending-on-information-security-to-total-213-billion-us-dollars-in-2025' },
-  { name: 'Gartner: Worldwide AI Spending $2.5T, 2026', url: 'https://www.gartner.com/en/newsroom/press-releases/2026-1-15-gartner-says-worldwide-ai-spending-will-total-2-point-5-trillion-dollars-in-2026' },
-  { name: 'Gartner: Lack of AI-Ready Data Puts AI Projects at Risk, 2025', url: 'https://www.gartner.com/en/newsroom/press-releases/2025-02-26-lack-of-ai-ready-data-puts-ai-projects-at-risk' },
-  { name: 'Gartner CxO Survey: AI Skills Gap, 2025', url: 'https://www.gartner.com/en/newsroom/press-releases/2026-05-13-gartner-predicts-by-2027-50-percent-of-enterprises-without-a-people-centric-ai-strategy-will-lose-their-top-ai-talent' },
-  { name: 'ISC2: Shadow AI Report, 2025', url: 'https://community.isc2.org/t5/Industry-News/Shadow-AI-on-the-Rise-50-of-Employees-Using-Unapproved-AI-Tools/td-p/79019' },
-  { name: 'Cloudera + Harvard Business Review: AI Data Readiness, 2026', url: 'https://www.cloudera.com/about/news-and-blogs/press-releases/2026-03-05-only-7-percent-of-enterprises-say-their-data-is-completely-ready-for-ai-according-to-new-report-from-cloudera-and-harvard-business-review-analytic-services-reveals.html' },
+const legalLinks = [
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms of Service', href: '/terms' },
+  { label: 'Responsible AI', href: '/responsible-ai' },
+]
+
+const socials = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/underfit-io',
+    path: 'M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/company/underfit-io',
+    path: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z',
+  },
 ]
 
 function LinkGroup({ title, links }: { title: string; links: { label: string; href: string }[] }) {
@@ -50,48 +53,54 @@ function LinkGroup({ title, links }: { title: string; links: { label: string; hr
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.08]" style={{ background: '#050505' }}>
+    <footer className="border-t border-line/[0.07]" style={{ background: 'var(--c-canvas)' }}>
       <div className="max-w-container mx-auto px-6 py-16">
         {/* Top row */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-12 md:gap-8 pb-12 border-b border-white/[0.06]">
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12 md:gap-8 pb-12 border-b border-line/[0.06]">
           {/* Brand */}
           <div className="max-w-xs">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/logomark.svg" alt="" className="h-7 w-7 flex-none" />
-              <span className="text-[0.97rem] font-semibold tracking-[-0.02em] text-ink">underfit</span>
+            <div className="flex items-center gap-2.5 mb-4">
+              <img src="/logomark.svg" alt="" className="h-8 w-8 flex-none" />
+              <span className="text-[1rem] font-display font-semibold tracking-[-0.02em] text-ink">underfit</span>
             </div>
             <p className="text-[0.875rem] text-muted-2 leading-relaxed">
-              Research company building AI security infrastructure for enterprises that take AI seriously.
+              AI cybersecurity and research. We help teams design, deploy, and defend AI agents,
+              LLM apps, and data pipelines.
             </p>
-            <a
-              href="mailto:info@underfit.io"
-              className="inline-block mt-4 text-[0.875rem] text-muted hover:text-accent transition-colors"
-            >
-              info@underfit.io
-            </a>
+            <div className="flex gap-2 mt-5">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={s.label}
+                  aria-label={s.label}
+                  className="w-[34px] h-[34px] rounded-card-sm bg-line/[0.04] border border-line/[0.07] flex items-center justify-center text-muted-2 hover:text-muted hover:bg-line/[0.08] hover:border-line/[0.12] transition-all duration-150"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+                    <path d={s.path} />
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
 
           <LinkGroup title="Products" links={productLinks} />
-          <LinkGroup title="Services" links={serviceLinks} />
+          <LinkGroup title="Company" links={companyLinks} />
           <LinkGroup title="Legal" links={legalLinks} />
         </div>
 
         {/* Sources */}
-        <div className="py-6 border-b border-white/[0.06]">
-          <p className="text-[0.72rem] text-muted-2 mb-2 font-medium uppercase tracking-[0.08em]">Data sources</p>
-          <div className="flex flex-wrap gap-x-4 gap-y-1">
-            {sources.map((s) => (
-              <a
-                key={s.url}
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[0.72rem] text-muted-2 hover:text-muted transition-colors"
-              >
-                {s.name}
-              </a>
-            ))}
-          </div>
+        <div className="py-6 border-b border-line/[0.06]">
+          <p className="text-[0.75rem] text-muted-2">
+            Every statistic on this site cites published research from IBM, McKinsey, Gartner,
+            ISC2, and others. Browse the full{' '}
+            <Link href="/resources" className="text-muted hover:text-accent-light transition-colors underline underline-offset-2">
+              reading list
+            </Link>
+            .
+          </p>
         </div>
 
         {/* Bottom row */}
@@ -99,9 +108,9 @@ export default function Footer() {
           <p className="text-[0.8rem] text-muted-2">
             © {new Date().getFullYear()} underfit. All rights reserved.
           </p>
-          <p className="text-[0.72rem] text-muted-2">
-            All statistics reflect 2024–2025 published research.
-          </p>
+          <a href="mailto:info@underfit.io" className="text-[0.8rem] text-muted-2 hover:text-muted transition-colors">
+            info@underfit.io
+          </a>
         </div>
       </div>
     </footer>
