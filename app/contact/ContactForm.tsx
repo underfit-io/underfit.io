@@ -26,25 +26,60 @@ const labelClass =
 const inputClass =
   'w-full px-4 py-3 rounded-card-sm bg-surface-2 border border-line/[0.07] text-[0.95rem] text-ink placeholder:text-muted-2 outline-none transition-[border-color,box-shadow] duration-200 focus:border-accent focus:shadow-[0_0_0_3px_rgba(99,91,255,0.18)]'
 
-export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false)
+/**
+ * Form backend. The email-style Formspree endpoint forwards submissions to
+ * info@underfit.io (first submission triggers a one-time confirmation email).
+ * After registering a Formspree/Basin form, replace this with the project
+ * endpoint, e.g. 'https://formspree.io/f/abcdwxyz'.
+ */
+const FORM_ENDPOINT = 'https://formspree.io/info@underfit.io'
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+type Status = 'idle' | 'sending' | 'sent' | 'fallback'
+
+export default function ContactForm() {
+  const [status, setStatus] = useState<Status>('idle')
+  const submitted = status === 'sent' || status === 'fallback'
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const data = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const data = new FormData(form)
     const name = String(data.get('name') ?? '')
-    const body = [
-      `Name: ${name}`,
-      `Company: ${String(data.get('company') ?? '')}`,
-      `Email: ${String(data.get('email') ?? '')}`,
-      `Role: ${String(data.get('role') ?? '')}`,
-      `Interest: ${data.getAll('interest').map(String).join(', ') || 'none'}`,
-      `Project: ${String(data.get('project') ?? '')}`,
-      `AI stack: ${String(data.get('aiStack') ?? '') || 'none'}`,
-    ].join('\n')
-    const subject = encodeURIComponent(`Underfit inquiry from ${name}`)
-    window.location.href = `mailto:info@underfit.io?subject=${subject}&body=${encodeURIComponent(body)}`
-    setSubmitted(true)
+    const payload = {
+      name,
+      company: String(data.get('company') ?? ''),
+      email: String(data.get('email') ?? ''),
+      role: String(data.get('role') ?? ''),
+      interest: data.getAll('interest').map(String).join(', ') || 'none',
+      project: String(data.get('project') ?? ''),
+      aiStack: String(data.get('aiStack') ?? '') || 'none',
+      _subject: `Underfit inquiry from ${name}`,
+    }
+
+    setStatus('sending')
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error(`form endpoint responded ${res.status}`)
+      form.reset()
+      setStatus('sent')
+    } catch {
+      // network or endpoint failure: fall back to a pre-filled email draft
+      const body = [
+        `Name: ${payload.name}`,
+        `Company: ${payload.company}`,
+        `Email: ${payload.email}`,
+        `Role: ${payload.role}`,
+        `Interest: ${payload.interest}`,
+        `Project: ${payload.project}`,
+        `AI stack: ${payload.aiStack}`,
+      ].join('\n')
+      window.location.href = `mailto:info@underfit.io?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(body)}`
+      setStatus('fallback')
+    }
   }
 
   return (
@@ -70,12 +105,18 @@ export default function ContactForm() {
             />
           </svg>
           <p className="text-[0.9rem] leading-relaxed text-ink">
-            Thanks. Your email client should open with the inquiry pre-filled, nothing
-            is sent until you hit send. If it didn&apos;t open, email{' '}
-            <a href="mailto:info@underfit.io" className="accent-link text-accent">
-              info@underfit.io
-            </a>{' '}
-            directly.
+            {status === 'sent' ? (
+              <>Thanks, we got your inquiry. We reply to every genuine message within one business day.</>
+            ) : (
+              <>
+                We couldn&apos;t reach the form service, so your email client should have opened
+                with the inquiry pre-filled. If it didn&apos;t, email{' '}
+                <a href="mailto:info@underfit.io" className="accent-link text-accent">
+                  info@underfit.io
+                </a>{' '}
+                directly.
+              </>
+            )}
           </p>
         </div>
       )}
@@ -232,13 +273,13 @@ export default function ContactForm() {
         <div>
           <button
             type="submit"
-            className="w-full px-6 py-3 rounded-card-sm text-[0.9rem] font-semibold bg-cta-gradient text-accent-on hover:shadow-accent-glow transition-shadow"
+            disabled={status === 'sending'}
+            className="w-full px-6 py-3 rounded-card-sm text-[0.9rem] font-semibold bg-cta-gradient text-accent-on hover:shadow-accent-glow transition-shadow disabled:opacity-60 disabled:cursor-wait"
           >
-            Send inquiry
+            {status === 'sending' ? 'Sending…' : 'Send inquiry'}
           </button>
           <p className="mt-3 text-center text-[0.75rem] text-muted-2">
-            Submitting opens your email client with a pre-filled draft, nothing is sent
-            until you hit send.
+            Goes straight to the team. We reply within one business day.
           </p>
         </div>
       </form>

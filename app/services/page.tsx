@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Reveal from '@/components/motion/Reveal'
 import CountUp from '@/components/motion/CountUp'
+import StepGrid from '@/components/sections/StepGrid'
 
 export const metadata: Metadata = {
   title: 'AI Security Consulting & Implementation Services',
@@ -64,6 +65,39 @@ const process = [
   { title: 'Control plane & guardrails', desc: 'Deploy Gateway and guardrails across AI interactions.' },
   { title: 'Data fabric', desc: 'Unify data into a single AI-ready layer.' },
   { title: 'Operate & improve', desc: 'Monitoring, audits, and iteration.' },
+]
+
+const methodologySteps = [
+  {
+    number: '01',
+    title: 'Discover & Inventory',
+    description: 'Map all AI systems, data sources, identities, and access patterns across your environment. Grounded in NIST CSF Identify and ISO/IEC 42001 AI asset management.',
+  },
+  {
+    number: '02',
+    title: 'Threat Model',
+    description: 'Identify AI-specific attack vectors: prompt injection, data poisoning, model inversion, and credential sprawl. Built on MITRE ATLAS and OWASP LLM Top 10.',
+  },
+  {
+    number: '03',
+    title: 'Govern & Control',
+    description: 'Deploy identity controls, policy engines, and access governance for every AI agent and integration. Aligned with Zero Trust Architecture (NIST SP 800-207).',
+  },
+  {
+    number: '04',
+    title: 'Secure & Protect',
+    description: 'Implement guardrails, encryption, audit trails, and secure data pipelines across all AI touchpoints. Built on NIST CSF Protect and ISO/IEC 27001:2022 controls.',
+  },
+  {
+    number: '05',
+    title: 'Detect & Monitor',
+    description: 'Establish behavioral baselines, anomaly detection, and continuous monitoring for AI agents and data flows. Following NIST CSF Detect and SIEM best practices.',
+  },
+  {
+    number: '06',
+    title: 'Respond & Evolve',
+    description: 'Structured incident response, policy updates, and continuous improvement cycles, keeping your AI posture resilient as threats evolve. Based on NIST CSF Respond/Recover and PDCA.',
+  },
 ]
 
 function ProcessTimeline() {
@@ -174,8 +208,29 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ── Security methodology ─────────────────────── */}
+      <section className="py-20 border-t border-line/[0.06]" style={{ background: 'var(--c-band)' }}>
+        <div className="max-w-container mx-auto px-6">
+          <Reveal>
+            <div className="mb-10">
+              <p className="text-eyebrow font-mono text-muted-2 mb-3">Security methodology</p>
+              <h2 className="text-section font-display text-bright mb-4" style={{ maxWidth: '22ch' }}>
+                Built on proven frameworks.
+              </h2>
+              <p className="text-[0.98rem] text-muted leading-relaxed max-w-[62ch]">
+                NIST CSF, MITRE ATLAS, Zero Trust, ISO 27001, and OWASP: adapted for the realities
+                of AI-native systems. Every engagement works through these six steps.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <StepGrid steps={methodologySteps} />
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── End CTA ──────────────────────────────────── */}
-      <section className="py-24 border-t border-line/[0.06] text-center" style={{ background: 'var(--c-band)' }}>
+      <section className="py-24 border-t border-line/[0.06] text-center">
         <div className="max-w-container mx-auto px-6">
           <Reveal>
             <h2 className="text-section font-display text-bright mb-4 mx-auto" style={{ maxWidth: '24ch' }}>

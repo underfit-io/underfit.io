@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Skill(run)",
-      "Skill(run:*)"
+      "Skill(run:*)",
+      "Bash(curl -s https://underfit.io/)",
+      "Bash(curl -s -o /dev/null -w \"resources:%{http_code} sitemap:%{http_code}\\\\n\" https://underfit.io/resources/ https://underfit.io/sitemap.xml)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" --max-time 3 http://localhost:3001/)"
     ]
   }
 }

@@ -15,9 +15,10 @@ interface CountUpProps {
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
 
 /**
- * Animated number that counts up the first time it scrolls into view.
- * Uses tabular figures so the layout doesn't shift while counting.
- * Respects prefers-reduced-motion (jumps straight to the final value).
+ * Animated number. The REAL value is server-rendered (initial state = `to`),
+ * so crawlers, AI engines, and no-JS visitors always read the actual figure;
+ * the count-up from zero only plays client-side once the number scrolls into
+ * view. Tabular figures keep the layout stable while counting.
  */
 export default function CountUp({
   to,
@@ -28,7 +29,7 @@ export default function CountUp({
   className = '',
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null)
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(to)
   const started = useRef(false)
 
   useEffect(() => {
@@ -39,13 +40,14 @@ export default function CountUp({
       typeof window.matchMedia === 'function' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+    if (reduced || typeof IntersectionObserver === 'undefined') {
+      // keep the server-rendered final value
+      return
+    }
+
     const start = () => {
       if (started.current) return
       started.current = true
-      if (reduced) {
-        setValue(to)
-        return
-      }
       const t0 = performance.now()
       const tick = (now: number) => {
         const p = Math.min((now - t0) / duration, 1)
@@ -55,10 +57,6 @@ export default function CountUp({
       requestAnimationFrame(tick)
     }
 
-    if (typeof IntersectionObserver === 'undefined') {
-      start()
-      return
-    }
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

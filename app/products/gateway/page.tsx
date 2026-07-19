@@ -14,7 +14,7 @@ import TokenChart from '@/components/viz/TokenChart'
 export const metadata: Metadata = {
   title: 'Gateway: AI Control Plane for LLM Apps & AI Agents',
   description:
-    'Gateway sits between your clients and every AI provider. Opaque virtual keys, policy enforcement, LLM guardrails, provider routing, and a full audit trail from one OpenAI-compatible endpoint.',
+    'Gateway decides what every AI request may do before it reaches a model: policy enforcement, PII guardrails, opaque virtual keys, provider routing, and a full audit trail from one OpenAI-compatible endpoint.',
   alternates: { canonical: '/products/gateway' },
 }
 
@@ -130,31 +130,19 @@ function CapabilityBand({ cap, flip }: { cap: Capability; flip: boolean }) {
 export default function GatewayPage() {
   const capabilities: Capability[] = [
     {
-      index: '01 / identity',
-      title: 'Opaque virtual keys',
-      description: (
-        <>
-          Clients authenticate with {mono('sk-gw-*')} virtual keys. Real provider credentials stay
-          server-side, vaulted and rotated. They never ship in a client, a repo, or a prompt. Each
-          key carries its own model scope, token budget, and rate limits.
-        </>
-      ),
-      visual: <KeyExchange />,
-    },
-    {
-      index: '02 / policy',
+      index: '01 / policy',
       title: 'Policy engine',
       description: (
         <>
-          Fine-grained allow/deny rules by principal, action, and resource. Deny overrides allow;
-          the default is deny. Test any rule against live traffic with the built-in simulator
-          before you enforce it.
+          The decision happens before the action does. Fine-grained allow/deny rules by principal,
+          action, and resource; deny overrides allow, and the default is deny. Test any rule
+          against live traffic with the built-in simulator before you enforce it.
         </>
       ),
       visual: <PolicyGate />,
     },
     {
-      index: '03 / guardrails',
+      index: '02 / guardrails',
       title: 'Guardrails & content filtering',
       description: (
         <>
@@ -164,6 +152,19 @@ export default function GatewayPage() {
         </>
       ),
       visual: <RedactionDemo />,
+    },
+    {
+      index: '03 / identity',
+      title: 'Opaque virtual keys',
+      description: (
+        <>
+          Every caller is someone Gateway knows. Clients authenticate with {mono('sk-gw-*')}{' '}
+          virtual keys while real provider credentials stay server-side, vaulted and rotated. They
+          never ship in a client, a repo, or a prompt. Each key carries its own model scope, token
+          budget, and rate limits.
+        </>
+      ),
+      visual: <KeyExchange />,
     },
     {
       index: '04 / routing',
@@ -182,7 +183,7 @@ export default function GatewayPage() {
       title: 'Full audit trail',
       description: (
         <>
-          Every request, verdict, and administrative action is logged, who called what model, with
+          Every request, verdict, and administrative action is logged: who called what model, with
           which key, under which policy, and what the guardrails did about it. Compliance,
           forensics, and debugging read from the same record.
         </>
@@ -194,8 +195,8 @@ export default function GatewayPage() {
       title: 'Usage analytics & budgets',
       description: (
         <>
-          Prompt and completion tokens tracked per provider and per key. Set soft and hard budgets
-         , a key that hits its hard limit stops spending your money, automatically.
+          Prompt and completion tokens tracked per provider and per key. Set soft and hard
+          budgets; a key that hits its hard limit stops spending your money, automatically.
         </>
       ),
       visual: (
@@ -213,12 +214,13 @@ export default function GatewayPage() {
         <div className="max-w-[720px]">
           <Pill variant="accent">Alpha · Early testers</Pill>
           <h1 className="text-display font-display text-bright mt-6 mb-6" style={{ maxWidth: '15ch' }}>
-            Gateway: your AI control plane.
+            Control every AI action. Before it happens.
           </h1>
           <p className="text-[1.08rem] text-muted leading-[1.65] max-w-[58ch] mb-8">
-            Gateway sits between your clients and every AI provider. It authenticates with opaque
-            virtual keys, enforces policy, applies guardrails, routes to the right provider, and
-            keeps a full audit trail, from one endpoint.
+            Gateway is the control plane in front of every AI provider you use. It decides what
+            each request may do before it happens: which policy applies, what gets masked, who is
+            really calling, where it routes, and what gets logged. One endpoint; every action
+            governed.
           </p>
           <div className="flex flex-wrap gap-4 mb-4">
             <Link

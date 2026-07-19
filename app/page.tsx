@@ -6,13 +6,12 @@ import FlowDiagram from '@/components/viz/FlowDiagram'
 import FabricLayer from '@/components/viz/FabricLayer'
 import ProviderMarquee from '@/components/viz/ProviderMarquee'
 import BrowserFrame from '@/components/viz/BrowserFrame'
-import StepGrid from '@/components/sections/StepGrid'
 import Pill from '@/components/ui/Pill'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Underfit | AI Security Company: LLM Gateway & Data Fabric' },
+  title: { absolute: 'Underfit | Control Every AI Action. Before It Happens.' },
   description:
-    'Underfit is an AI cybersecurity and research company. We secure AI agents, LLM apps, and data pipelines with Gateway, an AI control plane, and Data Fabric, an AI-ready data layer.',
+    'Gateway is the AI control plane that authenticates every caller, enforces policy, and masks sensitive data before a request ever reaches a model. Plus Data Fabric, the AI-ready data layer, and hands-on AI security services.',
   alternates: { canonical: '/' },
 }
 
@@ -54,39 +53,6 @@ const stats = [
   },
 ]
 
-const methodologySteps = [
-  {
-    number: '01',
-    title: 'Discover & Inventory',
-    description: 'Map all AI systems, data sources, identities, and access patterns across your environment. Grounded in NIST CSF Identify and ISO/IEC 42001 AI asset management.',
-  },
-  {
-    number: '02',
-    title: 'Threat Model',
-    description: 'Identify AI-specific attack vectors, prompt injection, data poisoning, model inversion, and credential sprawl. Built on MITRE ATLAS and OWASP LLM Top 10.',
-  },
-  {
-    number: '03',
-    title: 'Govern & Control',
-    description: 'Deploy identity controls, policy engines, and access governance for every AI agent and integration. Aligned with Zero Trust Architecture (NIST SP 800-207).',
-  },
-  {
-    number: '04',
-    title: 'Secure & Protect',
-    description: 'Implement guardrails, encryption, audit trails, and secure data pipelines across all AI touchpoints. Built on NIST CSF Protect and ISO/IEC 27001:2022 controls.',
-  },
-  {
-    number: '05',
-    title: 'Detect & Monitor',
-    description: 'Establish behavioral baselines, anomaly detection, and continuous monitoring for AI agents and data flows. Following NIST CSF Detect and SIEM best practices.',
-  },
-  {
-    number: '06',
-    title: 'Respond & Evolve',
-    description: 'Structured incident response, policy updates, and continuous improvement cycles, keeping your AI posture resilient as threats evolve. Based on NIST CSF Respond/Recover and PDCA.',
-  },
-]
-
 const services = [
   { title: 'Secure AI Architecture', desc: 'Threat modeling, risk assessment, and security-first design for AI systems.' },
   { title: 'Guardrailed LLM Apps', desc: 'Build LLM applications with content filtering, prompt safety, and policy enforcement.' },
@@ -117,18 +83,19 @@ export default function HomePage() {
       <section className="max-w-container mx-auto px-6 pt-16 pb-14 lg:pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-12 items-center">
           <div>
-            <h1 className="text-display font-display text-bright mb-6" style={{ maxWidth: '16ch' }}>
-              Secure the AI your business actually runs.
+            <h1 className="text-display font-display text-bright mb-6" style={{ maxWidth: '13ch' }}>
+              Control every AI action. Before it happens.
             </h1>
             <p className="text-[1.08rem] text-muted leading-[1.65] max-w-[54ch] mb-7">
-              Underfit is an AI cybersecurity and research company helping teams design, deploy,
-              and defend AI agents, LLM apps, and data pipelines.
+              Gateway is the control plane that authenticates every caller, checks every policy,
+              and masks every leak before a request ever reaches a model. One endpoint in front of
+              every AI provider your business uses.
             </p>
             <ul className="flex flex-col gap-3 mb-9">
               {[
-                ['Gateway', 'The control plane for your AI agents.'],
-                ['Data Fabric', 'One intelligence layer for every data source.'],
-                ['Services', 'From idea to secure deployment with a clear methodology.'],
+                ['Deny by default', 'policies decide before the call is made.'],
+                ['Credentials stay vaulted', 'clients only ever hold opaque keys.'],
+                ['Nothing unaccounted', 'every request, verdict, and token on one audit trail.'],
               ].map(([lead, rest]) => (
                 <li key={lead} className="flex gap-3 text-[0.95rem] text-muted">
                   <span className="text-accent-light font-bold flex-none" aria-hidden="true">▸</span>
@@ -147,10 +114,10 @@ export default function HomePage() {
                 Request Gateway access
               </Link>
               <Link
-                href="/contact"
+                href="/products/gateway"
                 className="px-6 py-3 rounded-card-sm text-[0.9rem] font-semibold border border-line/[0.12] text-muted hover:text-ink hover:bg-line/[0.04] transition-colors"
               >
-                Talk to us about your AI stack
+                See how Gateway works
               </Link>
             </div>
           </div>
@@ -209,28 +176,11 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* ── Methodology ──────────────────────────────── */}
-      <section className="py-20 border-y border-line/[0.06]" style={{ background: 'var(--c-band)' }}>
-        <div className="max-w-container mx-auto px-6">
-          <Reveal>
-            <SectionHeader
-              index="02"
-              kicker="Methodology"
-              title="Built on proven frameworks."
-              sub="NIST CSF, MITRE ATLAS, Zero Trust, ISO 27001, and OWASP: adapted for the realities of AI-native systems."
-            />
-          </Reveal>
-          <Reveal delay={100}>
-            <StepGrid steps={methodologySteps} />
-          </Reveal>
-        </div>
-      </section>
-
       {/* ── Products ─────────────────────────────────── */}
       <section id="products" className="max-w-container mx-auto px-6 py-20">
         <Reveal>
           <SectionHeader
-            index="03"
+            index="02"
             kicker="Products"
             title="Infrastructure for AI security and data governance."
           />
@@ -243,12 +193,12 @@ export default function HomePage() {
               <Pill variant="accent">Alpha · Early testers</Pill>
               <h3 className="text-[1.5rem] font-display font-bold text-bright mt-5 mb-3 tracking-[-0.02em]">Gateway</h3>
               <p className="text-[0.94rem] text-muted leading-relaxed mb-5">
-                The control plane for your AI agents. Gateway sits between clients and every AI
-                provider, authenticating with opaque virtual keys, enforcing policy, applying
-                guardrails, routing traffic, and keeping a full audit trail from one endpoint.
+                Gateway decides what every AI request may do before it reaches a model: which
+                policy applies, what gets masked, who is really calling, where it routes, and what
+                gets logged. One endpoint in front of every provider; every action governed.
               </p>
               <ul className="flex flex-col gap-2 mb-6">
-                {['Identity & authentication', 'Opaque virtual keys', 'Policy engine', 'Guardrails & content filtering', 'Intelligent routing', 'Full audit trail'].map((b) => (
+                {['Policy engine, deny by default', 'Guardrails & PII masking', 'Opaque virtual keys', 'Multi-provider routing', 'Full audit trail', 'Budgets & rate limits'].map((b) => (
                   <li key={b} className="flex gap-2.5 text-[0.86rem] text-muted">
                     <span className="text-accent-light font-bold flex-none" aria-hidden="true">▸</span>
                     {b}
@@ -300,10 +250,10 @@ export default function HomePage() {
         <div className="max-w-container mx-auto px-6">
           <Reveal>
             <SectionHeader
-              index="04"
+              index="03"
               kicker="Services"
               title="Got an idea? Ship it safely."
-              sub="Our services help you design, build, and secure AI solutions from concept to production."
+              sub="Our services take AI solutions from concept to secure production, grounded in NIST CSF, MITRE ATLAS, Zero Trust, ISO 27001, and OWASP."
             />
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
